@@ -1,0 +1,121 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <ion-header no-border >
+  <ion-row style="height: 14vw; background-image: linear-gradient(to right,#d6d5d5,#929292);-webkit-box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);-moz-box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);">
+    <ion-title style="text-align: left;font-size:8vw;margin-top: 1vw">
+      <button  *ngIf="!vdetail && !vim" menuToggle start style="height: 10vw;width: 10vw;background-color: transparent">
+        <ion-icon name="menu" style="color: black;font-size: 9vw"></ion-icon>
+        <div style="margin-left: 9vw;margin-top: -7vw;font-size: 5vw"><b>Active Packages</b></div>
+      </button>
+      <div  *ngIf="vdetail && !vim">
+          <div style="margin-top: 0;font-size: 5vw"><b> Package Detail</b> <button (click)="bt()" item-end style="background-color: transparent;margin-left: 50vw"><i class="fa fa-close"></i></button>
+          </div>
+          </div>
+          <div  *ngIf="vim">
+              <div style="margin-top: 0;font-size: 5vw"><b> Package Image</b> <button (click)="bt1()" item-end style="background-color: transparent;margin-left: 50vw"><i class="fa fa-close"></i></button>
+              </div>
+         
+        </div>
+    </ion-title>
+  </ion-row>
+  <div padding  >
+    
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="pla">
+        Active Packages
+      </ion-segment-button>
+      <ion-segment-button value="cli">
+        Deactive Packages
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+</ion-header>
+<ion-content style="margin-top: -10px" >
+  <div [ngSwitch]="pet"    >
+    <ion-list *ngSwitchCase="'pla'" >
+        <div *ngIf="da">
+            <div *ngIf="!vdetail && !vim">
+  
+
+     
+       <div *ngFor="let p of da;let i=index">  
+
+              <ion-item>
+                <ion-row>
+                  <ion-col col-6>
+                  <img [src]=da[0].img.image1 style="height: 15vw;width: 15vw">
+              
+               </ion-col>
+               <ion-col col-6 style="margin-left:-23vw">
+               
+                  <button [id]=i (click)="view(i)" style="width: 100%;background-color: transparent">
+                      <p style="font-size: 4vw">Package Name: {{da[i].pckname}}</p>
+                          <p style="font-size: 4vw"> Area: {{da[i].area}},{{da[i].city}} </p>
+                          <p style="font-size: 4vw"> Price: {{da[i].pr}} </p>
+                    
+                      </button>
+               
+               </ion-col>
+               
+         
+       <!--  <ion-thumbnail> 
+           <img [src]=da[i].img[image1] style="height: 10vw;width: 10vw">
+          <button style="background-color: transparent;width: 100%"   id="1" (click)="view($event)">
+            <ion-item><h3> {{i+1}}. Name {{da[i].pckname}}</h3>
+             <h3 style="margin-left: 3vw">     Size {{da[i].width}}x{{da[i].height}}</h3>
+            </ion-item>
+          </button>-->
+          </ion-row>
+        </ion-item>
+</div>
+            </div>
+   
+  </div>
+      
+    
+  
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'cli'"  >
+      <div *ngIf="da1">
+        
+     
+       <div *ngFor="let p of da1;let i=index">  
+
+          <ion-item>
+            <ion-row>
+              <ion-col col-6>
+              <img [src]=da1[i].img.image1 style="height: 15vw;width: 15vw">
+          
+           </ion-col>
+           <ion-col col-6 style="margin-left:-23vw">
+           
+              <button [id]=i (click)="views(i)" style="width: 100%;background-color: transparent">
+                  <p style="font-size: 4vw">Package Name: {{da1[i].pckname}}</p>
+                      <p style="font-size: 4vw"> Area: {{da1[i].area}},{{da1[i].city}} </p>
+                      <p style="font-size: 4vw">  Package Price: {{da1[i].pr}}</p>
+               
+
+                  </button>
+           
+           </ion-col>
+           
+     
+   <!--  <ion-thumbnail> 
+       <img [src]=da[i].img[image1] style="height: 10vw;width: 10vw">
+      <button style="background-color: transparent;width: 100%"   id="1" (click)="view($event)">
+        <ion-item><h3> {{i+1}}. Name {{da[i].pckname}}</h3>
+         <h3 style="margin-left: 3vw">     Size {{da[i].width}}x{{da[i].height}}</h3>
+        </ion-item>
+      </button>-->
+      </ion-row>
+    </ion-item>
+
+
+</div>
+  
+
+    </div>
+    </ion-list>
+  </div>
+</ion-content>

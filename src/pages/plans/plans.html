@@ -1,0 +1,107 @@
+<!--
+  Generated template for the PlansPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<ion-header no-border>
+
+    <ion-row style=" height: 14vw;;background-image: linear-gradient(to right,#d6d5d5,#929292);background-color:rgba(1, 195, 209, 0.979);-webkit-box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);-moz-box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);">
+       
+        <ion-title style="text-align: left;font-size:8vw">
+          <div style="font-size: 6vw;margin-left: 7vw">
+            Package Information</div>
+        </ion-title>
+        <div *ngIf="!sh" style="box-align: left;margin-left: 5px;margin-top: 1px;margin-bottom: -1px">
+            <!--  <img class="filter" src="../../assets/img/logosv3.png" style="margin-bottom: -1px;margin-top: 1px;height:10vw ;width:10vw "/>
+            -->
+            <button type="submit" style="margin-top: 1vw;background-color:transparent;margin-right :3vw;" (click)="close()" >
+             <i class="fa fa-close" style="font-size: 7vw;margin-right: 3vw;color: rgb(20, 20, 20);margin-top: 2vw"></i>
+            </button>
+             </div>
+             <div *ngIf="sh" style="box-align: left;margin-left: 5px;margin-top: 1px;margin-bottom: -1px">
+                <!--  <img class="filter" src="../../assets/img/logosv3.png" style="margin-bottom: -1px;margin-top: 1px;height:10vw ;width:10vw "/>
+                -->
+                <button type="submit" style="margin-top: 1vw;background-color:transparent;margin-right :3vw;" (click)="bt()" >
+                 <i class="fa fa-close" style="font-size: 7vw;margin-right: 3vw;color: rgb(20, 20, 20);margin-top: 2vw"></i>
+                </button>
+                 </div>
+      </ion-row>
+</ion-header>
+
+
+<ion-content >
+
+  <div *ngIf="sh"  style="height: 139vw;">
+     <ion-slides style="border: radius 3vw;height: 100%;"effect="slide">
+        <ion-slide *ngFor="let m of ia;let i=index" style="border-radius: 3vw;" active>
+          <img [src]=m style="height:100vw;width: 90%" >
+<br><br>
+        <small>{{i+1}} image of {{count}} images</small>
+        </ion-slide>
+      </ion-slides>
+    </div>
+<div class="container" *ngIf="!sh" style="margin-top:7vw">
+    <h2></h2>
+     <div class="table-responsive">          
+    <table class="table table-bordered">
+       <tr style="font-size:4vw">
+      <th>City:</th>
+      <td>{{city}}</td>
+    </tr>
+    <tr style="font-size:4vw">
+      <th>Area:</th>
+      <td>{{area}}</td>
+    </tr>
+    <tr style="font-size:4vw">
+      <th>Pincode:</th>
+      <td>{{pin}}</td>
+    </tr> <tr style="font-size:4vw">
+      <th>Size:</th>
+      <td>{{w}}x{{h}}   {{m}}</td>
+    </tr> <tr style="font-size:4vw">
+      <th>Type:</th>
+      <td>{{ht}}</td>
+    </tr>
+    <tr style="font-size:4vw">
+      <th>Time:</th>
+      <td>{{td}}</td>
+    </tr>
+    <tr style="font-size:4vw">
+        <th>height from ground:</th>
+        <td>{{gh}} {{gm}}</td>
+      </tr>
+    <tr style="font-size:4vw">
+      <th>Amount:</th>
+      <td>{{pr}}</td>
+    </tr>
+    <tr style="font-size:4vw">
+      <th>Description:</th>
+      <td>{{des}}</td>
+    </tr>
+    <tr style="font-size:4vw">
+        <th>Images:</th>
+        <td><button style="background-color: transparent" (click)="showimg()">Show Images</button></td>
+      </tr>
+      </tbody>
+      <tfoot>
+       
+      </tfoot>
+    </table>
+  
+    </div>
+    <div  style="margin-left: 15vw">
+        <button type="submit" class="ion-button"  id="btn" style="background-image: linear-gradient(to right,#c9c6c6,#929292);;background-color :primary;height: 10vw;width: 30vw;font-size: 3vw"
+                    ion-button color="gray" (click)="sendreq()">Send Proposal</button>
+                    <button type="submit" class="ion-button"  id="btn" style="background-image: linear-gradient(to right,#c9c6c6,#929292);;background-color :primary;height: 10vw;width: 30vw;font-size: 3vw"
+                    ion-button color="gray" (click)="addl()">Add to list</button>
+            
+  
+    </div>
+  </div>
+  
+</ion-content>

@@ -1,0 +1,170 @@
+<!--
+  Generated template for the PlansPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<ion-header no-border>
+
+  <ion-row style=" height: 14vw;;background-image: linear-gradient(to right,#d6d5d5,#929292);background-color:rgba(1, 195, 209, 0.979);-webkit-box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);-moz-box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);">
+
+    <ion-title style="text-align: left;font-size:8vw">
+      <div style="font-size: 6vw;margin-left: 7vw">
+        Package Information</div>
+    </ion-title>
+    <div *ngIf="!sh" style="box-align: left;margin-left: 5px;margin-top: 1px;margin-bottom: -1px">
+      <button type="submit" style="margin-top: 1vw;background-color:transparent;margin-right :3vw;" (click)="close()">
+        <i class="fa fa-close" style="font-size: 7vw;margin-right: 3vw;color: rgb(20, 20, 20);margin-top: 2vw"></i>
+      </button>
+    </div>
+    <div *ngIf="sh" style="box-align: left;margin-left: 5px;margin-top: 1px;margin-bottom: -1px">
+      <button type="submit" style="margin-top: 1vw;background-color:transparent;margin-right :3vw;" (click)="bt()">
+        <i class="fa fa-close" style="font-size: 7vw;margin-right: 3vw;color: rgb(20, 20, 20);margin-top: 2vw"></i>
+      </button>
+    </div>
+  </ion-row>
+</ion-header>
+
+
+<ion-content>
+
+  <div *ngIf="sh" style="height: 139vw;">
+    <ion-slides style="border: radius 3vw;height: 100%;" effect="slide">
+      <ion-slide *ngFor="let m of ia;let i=index" style="border-radius: 3vw;" active>
+        <img [src]=m style="height:100vw;width: 90%">
+        <br><br>
+        <small>{{i+1}} image of {{count}} images</small>
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <div *ngIf="!sh">
+    <ion-grid style="margin-left:12vw;">
+<ion-row>
+<ion-col col-6 style="margin-left: 2vw">
+        
+            <img [src]=img1 style="height:27vw;margin-left:-7px;width:25vw" (click)=showimg()>
+          
+          </ion-col>
+          <ion-col col-6 style="margin-left: -23vw;margin-top:-2vw">
+        
+        <span style="margin-left: 3vw;font-size: 4vw">
+        <b> <p>Total Request :{{nr}}</p>
+         <p>Approved Request:{{nry}}</p>
+         <p>Cancled Request :{{nrn}}</p></b>
+             </span>
+         
+            </ion-col>
+          
+          
+          
+</ion-row>
+<br>
+      <ion-row style="font-size: 4vw;">
+        <ion-col col-6 style="text-align: left;">
+          <b>Package Name</b>
+        </ion-col>
+        <ion-col col-6>
+          {{pckname}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="font-size: 4vw;margin-top: -5px">
+        <ion-col col-6 style="text-align: left">
+          <b>Creation Date:</b>
+        </ion-col>
+        <ion-col col-6>
+          {{cdate}}
+        </ion-col>
+      </ion-row>
+
+   
+      <ion-row style="font-size: 4vw;margin-top: -5px">
+        <ion-col col-6 style="text-align: left">
+          <b> city</b>
+        </ion-col>
+        <ion-col col-6>
+          {{city}}
+        </ion-col>
+      </ion-row>
+      <ion-row style="font-size: 4vw;margin-top: -5px">
+        <ion-col col-6 style="text-align: left">
+          <b>Area:</b>
+        </ion-col>
+        <ion-col col-6>
+          {{area}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="font-size: 4vw;margin-top: -5px">
+        <ion-col col-6 style="text-align: left">
+          <b>Pincode:</b>
+        </ion-col>
+        <ion-col col-6>
+          {{pin}}
+        </ion-col>
+      </ion-row>
+
+   
+
+      <ion-row style="font-size: 4vw;margin-top: -5px">
+        <ion-col col-6 style="text-align: left">
+          <b>Size:</b>
+        </ion-col>
+        <ion-col col-6>
+          {{width}} x{{height}} {{mt}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="font-size: 4vw;margin-top: -5px">
+        <ion-col col-6 style="text-align: left">
+          <b>Type:</b>
+        </ion-col>
+        <ion-col col-6>
+          {{ht}}
+        </ion-col>
+      </ion-row>
+      <ion-row style="font-size: 4vw;margin-top: -5px">
+        <ion-col col-6 style="text-align: left">
+          <b>Time:</b>
+        </ion-col>
+        <ion-col col-6>
+          {{duration}}
+        </ion-col>
+      </ion-row>
+      <ion-row style="font-size: 4vw;margin-top: -5px">
+        <ion-col col-6 style="text-align: left">
+          <b>Height from ground:</b>
+        </ion-col>
+        <ion-col col-6>
+          {{gh1}} {{gm1}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row style="font-size: 4vw;margin-top: -5px">
+        <ion-col col-6 style="text-align: left">
+          <b>Amount</b>
+        </ion-col>
+        <ion-col col-6>
+          {{price}}
+        </ion-col>
+      </ion-row>
+      <ion-row style="font-size: 4vw;margin-top: -5px">
+        <ion-col col-6 style="text-align: left">
+          <b>Description:</b>
+        </ion-col>
+        <ion-col col-6>
+          {{des}}
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+ 
+
+  </div>
+
+</ion-content>

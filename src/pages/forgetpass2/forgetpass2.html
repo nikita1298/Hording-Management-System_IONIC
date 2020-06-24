@@ -1,0 +1,70 @@
+<!--
+  Generated template for the ForgetpassPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<ion-content>
+  <ion-row style=" height: 14vw;;background-image: linear-gradient(to right,#d6d5d5,#929292);background-color:rgba(1, 195, 209, 0.979);-webkit-box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);-moz-box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);">
+    <div style="box-align: left;margin-left: 5px;margin-top: 1px;margin-bottom: -1px">
+      <!--  <img class="filter" src="../../assets/img/logosv3.png" style="margin-bottom: -1px;margin-top: 1px;height:10vw ;width:10vw "/>
+       -->
+      <button type="submit" style="margin-top: 1vw;background-color:transparent;margin-right :0vw;" (click)="rethome()">
+        <i class="fa fa-long-arrow-left" style="font-size: 7vw;margin-right: 3vw;color: rgb(20, 20, 20);margin-top: 2vw"></i>
+      </button>
+    </div>
+    <ion-title style="text-align: left;font-size:8vw">
+      <div style="font-size: 6vw;">
+        Forget Password</div>
+    </ion-title>
+  </ion-row>
+  
+  
+
+ 
+  <form [formGroup]="formgroup" name="m" novalidate>
+
+    <ion-grid>
+             <ion-row style="margin-top: 17%">
+                <br>
+                <br> 
+            
+              <ion-col  style="margin-left: 10vw">      * Plese enter   OTP  which you get  <br style="margin-left: 7vw"> login into system
+      
+                </ion-col>
+              </ion-row>
+      <ion-row>
+        <ion-col>
+                  <ion-item style="width: 93%;">
+          <ion-label color="gray" floating class="" style="border-bottom-color:2px  darkgray;font-size: 14px"><i class="fa fa-lock"
+              style="margin-right: 1vw;font-size: 14px"></i>OTP</ion-label>
+          <ion-input type="text " [(ngModel)]="em" formControlName="otp" name="logemail"></ion-input>
+
+        </ion-item>
+      </ion-col>
+<!--<ion-col>
+  <button>
+    get otp
+  </button>
+</ion-col>-->
+      </ion-row>
+      <ion-row>
+        <div class="error-box" style="color: red;margin-left: 10vw" *ngIf="otp.hasError('required') && otp.touched">
+          <p> OTP</p>      
+        </div>
+        
+
+      </ion-row>
+      <ion-row style="align-items: center;text-align: center;margin-top: 10vw" justify-content-center>
+
+        <button type="submit" class="ion-button" [disabled]="!formgroup.valid" id="btn" style="background-image: linear-gradient(to right,#c9c6c6,#929292);;background-color :primary;height: 12vw;width: 60vw;font-size: 5vw"
+          ion-button color="gray" (click)="change()">Chnage Password</button>
+        <br>
+      </ion-row>
+    </ion-grid>
+  </form> 
+</ion-content>

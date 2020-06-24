@@ -1,0 +1,24 @@
+page-home {
+    ion-slides{
+        height: auto;
+    }
+    ion-navbar{
+        margin-left: 3px;
+        margin-right: 3px;
+        height: 20px;
+    }
+    ion-header{
+        height: 30px;
+    }
+    ion-modal {
+        .modal-wrapper {
+            height: 70%;
+            width: 60%;
+        }
+    }
+}
+.slideh{
+    display: flex;
+    height: 200px;
+  
+}

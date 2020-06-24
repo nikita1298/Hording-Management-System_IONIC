@@ -1,0 +1,109 @@
+<ion-navbar style="height: 20px;background-color: black">
+  <ion-row style="background-color: black">
+    <div style="box-align: left;">
+      <img class="filter" src="../../assets/img/logosv3.png" height="39;width:39" />
+    </div>
+    <ion-title style="text-align: center">
+     Advertisement
+    </ion-title> 
+  </ion-row>
+</ion-navbar>
+
+<ion-header no-border>
+    <ion-row style="height: 14vw; background-image: linear-gradient(to right,#d6d5d5,#929292);-webkit-box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);-moz-box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);">
+        <div style="box-align: left;margin-left: 5px;margin-top: 1px;margin-bottom: -1px">
+          <img class="filter" src="../../assets/img/logosv3.png" style="margin-bottom: -1px;margin-top: 1px;height:10vw ;width:10vw "/>
+        </div>
+        <ion-title style="text-align: left;font-size:8vw">
+          <div style="font-size: 5vw;font-family: 'Times New Roman', Times, serif">
+            <b>Advertisement</b></div>
+        </ion-title>
+        
+        <div >
+                <button type="submit" style="background-color:transparent;margin-right :0vw;" (click)="logs()" >
+           <abbr title="Sign in "><i class="fa fa-user" style="font-size: 7vw;margin-right: 3vw;color: rgb(20, 20, 20);margin-top: 2vw"></i>
+             </abbr>
+             
+            </button>
+        </div>
+      </ion-row>
+</ion-header>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<ion-content>
+
+
+  <div style="margin-left: 3px;margin-right:3px;margin-top: 20px;text-align: center">
+
+    <div style="margin-top: 7px;border-radius: 3vw;" >
+      <ion-slides loop="true" autoplay="3000" speed="200" style="border: radius 3vw; "effect="fade">
+        <ion-slide *ngFor="let im of ImageArray" style="border-radius: 3vw">
+          <img src="{{im.image}}" style="height:57vw;width: 100%;border-radius: 3vw" class="slideh">
+        </ion-slide>
+      </ion-slides>
+    </div>
+    <div>
+      <ion-grid style="margin-left: 3px;">
+        <ion-row style="align-items: center;margin-left: -20px;margin-right: 10px">
+          <ion-col>
+            <ion-card class="card-width" type="button" style="width:100%;height:100%">
+              <button type="submt" style="background-color: white" (click)="dplans()">
+                <br>
+                <i class="fa fa-dropbox" aria-hidden="true" style="font-size: 7vw;color: #3b3b3b ;margin-bottom: 1vw"></i>
+                 <div class="card-title" style="text-align: center;font-size: 5vw;font-family:'Times New Roman', Times, serif ">Plans</div>
+                <br>
+              </button>
+            </ion-card>
+          </ion-col>
+
+          <ion-col>
+            <ion-card class="card-width" type="button" style="width:100%;height:100%">
+              <button type="submit" style="background-color: white" (click)="register()">
+                <br>
+                <i class="fa fa-user-plus" aria-hidden="true" style="font-size: 7vw;color: #3b3b3b;margin-bottom:1vw"></i>
+                <div class="" style="text-align: center;color: #242424;font-size: 5vw;font-family:'Times New Roman', Times, serif">Sign Up</div>
+                <br>
+              </button>
+            </ion-card>
+          </ion-col>
+
+          <ion-col>
+            <ion-card class="card-width" type="button" style="width:100%;height:100%">
+              <button type="submit" style="background-color: white" ng-click="adds()">
+                <br>
+                <i class="fa fa-gift" aria-hidden="true" style="font-size: 7vw;color: #3b3b3b;margin-bottom: 1vw"></i>
+                 <div class="card-title" style="text-align: center;font-size: 5vw;font-family: 'Times New Roman', Times, serif">offers</div>
+                <br>
+              </button>
+            </ion-card>
+          </ion-col>
+
+        </ion-row> 
+      </ion-grid>
+    </div>
+  </div>
+ <!-- <ion-input ion-input tooltip="HII HELLO"></ion-input>-->
+ <div padding>
+   <p>
+          <span style="margin-left:17vw">  Outdoor </span>advertisement creates impact on customers.Outdoor advertisement influence to buy the product
+      . Outdoor advertisement gives useful information about the product
+      .Outdoor advertisement helps consumers to know where the product is available
+     
+     
+  </p>
+  <ion-row>
+    <ion-col></ion-col>
+  </ion-row>
+  <p>
+      <span style="margin-left:17vw"> Outdoor</span> advertisement creates more impact on customers to purchase the product
+      .Outdoor reaches consumers at the most important time in the market and ready to buy.
+    
+  </p>
+ <!-- <p>  <span style="margin-left:17vw">  Outdoor </span>advertisement can be seen at any time
+      .Outdoor advertisement generates reputation and brand name of the production company
+  .Outdoor advertisement continuity to the media mix
+</p>-->
+
+ </div>
+</ion-content>
+

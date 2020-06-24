@@ -1,0 +1,30 @@
+page-editplan {
+    ion-icon {
+        &[class*="custom-"] {
+          mask-size: contain;
+          mask-position: 50% 50%;
+          mask-repeat: no-repeat;
+          background: currentColor; 
+          width: 1em;
+          height: 1em;
+        }
+        &[class*="custom-tabs"] {
+          mask-image: url(../../assets/img/icons8-edit.svg);
+        }
+    }
+
+    ion-icon {
+      &[class*="custom-"] {
+        mask-size: contain;
+        mask-position: 50% 50%;
+        mask-repeat: no-repeat;
+        background: currentColor; 
+        width: 1em;
+        height: 1em;
+      }
+      &[class*="custom-r"] {
+        mask-image: url(../../assets/img/icons8-checkmark-48.png);
+      }
+  }
+
+}

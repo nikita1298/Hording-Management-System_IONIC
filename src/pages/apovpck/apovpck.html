@@ -1,0 +1,277 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<ion-header no-border>
+  <ion-row style="height: 14vw; background-image: linear-gradient(to right,#d6d5d5,#929292);-webkit-box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);-moz-box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);">
+    <ion-title style="text-align: left;font-size:8vw;margin-top: 1vw">
+      <button *ngIf="!vdetail && !vim" menuToggle start style="height: 10vw;width: 10vw;background-color: transparent">
+        <ion-icon name="menu" style="color: black;font-size: 9vw"></ion-icon>
+        <div style="margin-left: 9vw;margin-top: -7vw;font-size: 5vw"><b>Approved Packages </b></div>
+      </button>
+      <div  *ngIf="vdetail && !vim">
+      <div style="margin-top: 0;font-size: 5vw"><b> Package Detail</b> <button (click)="bt()" item-end style="background-color: transparent;margin-left: 50vw"><i class="fa fa-close"></i></button>
+      </div>
+      </div>
+      <div  *ngIf="vim">
+          <div style="margin-top: 0;font-size: 5vw"><b> Package Image</b> <button (click)="bt1()" item-end style="background-color: transparent;margin-left: 50vw"><i class="fa fa-close"></i></button>
+          </div>
+     
+    </div>
+    </ion-title>
+  </ion-row>
+  </ion-header>
+  <ion-content>
+  <div >
+    <div *ngIf="!vdetail && !vim">
+      <br>
+       <ion-list padding>
+
+  <ion-item> <ion-title>Approved Packages</ion-title>
+  </ion-item>
+         <div *ngFor="let d of da;let i=index">  
+
+                <ion-item>
+                  <ion-row>
+                    <ion-col col-6>
+                    <img [src]=da[i].img.image1 style="height: 15vw;width: 15vw">
+                
+                 </ion-col>
+                 <ion-col col-6 style="margin-left:-23vw">
+                 
+                    <button [id]=i (click)="view($event)" style="width: 100%;background-color: transparent">
+                        <p style="font-size: 4vw">Package Name: {{da[i].pckname}}</p>
+                        <p style="font-size: 4vw">  Package Size: {{da[i].width}}x{{da[i].height}}  {{da[i].mt}}</p>
+                            <p style="font-size: 4vw"> Area: {{da[i].area}},{{da[i].city}} </p>
+      
+                        </button>
+                 
+                 </ion-col>
+                 
+           
+         <!--  <ion-thumbnail> 
+             <img [src]=da[i].img[image1] style="height: 10vw;width: 10vw">
+            <button style="background-color: transparent;width: 100%"   id="1" (click)="view($event)">
+              <ion-item><h3> {{i+1}}. Name {{da[i].pckname}}</h3>
+               <h3 style="margin-left: 3vw">     Size {{da[i].width}}x{{da[i].height}}</h3>
+              </ion-item>
+            </button>-->
+            </ion-row>
+            </ion-item>
+      
+     
+    </div>
+  
+    <ion-item *ngIf="da==NULL" >
+    No Recent Request for Packages
+    </ion-item>
+     
+
+         
+      </ion-list>
+
+   </div>
+   <div *ngIf="vdetail  &&  !vim" >
+
+      <ion-grid style="margin-left:12vw;">
+          <ion-row>
+          <ion-col col-6 style="margin-left: 2vw">
+                  
+                      <img [src]=img1 style="height:23vw;margin-left:-7px;width:23vw" (click)=showimg()>
+                    
+                    </ion-col>
+                    <ion-col col-6 style="margin-left: -23vw;margin-top:7vw">
+                    
+                  <span style="margin-left: 3vw;">
+                   
+                     <!-- <button (click)="approve()" item-end style="background-image: linear-gradient(to right,#7e7e7e,#5c5c5c);height:7vw;width:19vw;font-size:3vw;color:#ffffff;border-radius: 3px ;margin-right: 3vw">Approve</button>
+                       --><button  (click)="reject()" item-end style="background-image: linear-gradient(to right,#7e7e7e,#5c5c5c);height:7vw;width:17vw;font-size:3vw;color: #ffffff;border-radius: 3px">Cancle</button>
+                    </span>
+                   
+                      </ion-col>
+                    
+                    
+                    
+          </ion-row>
+          <br>
+                <ion-row style="font-size: 4vw;">
+                  <ion-col col-6 style="text-align: left;">
+                    <b>Package Name</b>
+                  </ion-col>
+                  <ion-col col-6>
+                    {{pckname}}
+                  </ion-col>
+                </ion-row>
+          
+                <ion-row style="font-size: 4vw;margin-top: -5px">
+                  <ion-col col-6 style="text-align: left">
+                    <b>Package Date:</b>
+                  </ion-col>
+                  <ion-col col-6>
+                    {{cdate}}
+                  </ion-col>
+                </ion-row>
+          
+                <ion-row style="font-size: 4vw;margin-top: -5px">
+                  <ion-col col-6 style="text-align: left">
+                    <b> city</b>  
+                  </ion-col>
+                  <ion-col col-6>
+                    {{city}}
+                  </ion-col>
+                </ion-row>
+                <ion-row style="font-size: 4vw;margin-top: -5px">
+                  <ion-col col-6 style="text-align: left">
+                    <b>Area:</b>
+                  </ion-col>
+                  <ion-col col-6>
+                    {{area}}
+                  </ion-col>
+                </ion-row>
+          
+                <ion-row style="font-size: 4vw;margin-top: -5px">
+                  <ion-col col-6 style="text-align: left">
+                    <b>Pincode:</b>
+                  </ion-col>
+                  <ion-col col-6>
+                    {{pin}}
+                  </ion-col>
+                </ion-row>
+          
+                <ion-row style="font-size: 4vw;margin-top: -5px">
+                  <ion-col col-6 style="text-align: left">
+                    <b>Size:</b>
+                  </ion-col>
+                  <ion-col col-6>
+                    {{width}} x{{height}} {{mt}}
+                  </ion-col>
+                </ion-row>
+          
+                <ion-row style="font-size: 4vw;margin-top: -5px">
+                  <ion-col col-6 style="text-align: left">
+                    <b>Type:</b>
+                  </ion-col>
+                  <ion-col col-6>
+                    {{ht}}
+                  </ion-col>
+                </ion-row>
+                <ion-row style="font-size: 4vw;margin-top: -5px">
+                  <ion-col col-6 style="text-align: left">
+                    <b>Time:</b>
+                  </ion-col>
+                  <ion-col col-6>
+                    {{duration}}
+                  </ion-col>
+                </ion-row>
+                <ion-row style="font-size: 4vw;margin-top: -5px">
+                  <ion-col col-6 style="text-align: left">
+                    <b>Height from ground:</b>
+                  </ion-col>
+                  <ion-col col-6>
+                    {{gh1}} {{gm1}}
+                  </ion-col>
+                </ion-row>
+          
+                <ion-row style="font-size: 4vw;margin-top: -5px">
+                  <ion-col col-6 style="text-align: left">
+                    <b>Amount</b>
+                  </ion-col>
+                  <ion-col col-6>
+                    {{price}}
+                  </ion-col>
+                </ion-row>
+                <ion-row style="font-size: 4vw;margin-top: -5px">
+                    <ion-col col-6 style="text-align: left">
+                      <b>Availability</b>
+                    </ion-col>
+                    <ion-col col-6>
+                      {{status}}
+                    </ion-col>
+                  </ion-row>
+                <ion-row style="font-size: 4vw;margin-top: -5px">
+                  <ion-col col-6 style="text-align: left">
+                    <b>Description:</b>
+                  </ion-col>
+                  <ion-col col-6>
+                    {{des}}
+                  </ion-col>
+                </ion-row>
+                <br>
+              <ion-row><p><b>Provider details :</b></p></ion-row>
+
+              <ion-row style="font-size: 4vw;margin-top: -5px">
+                  <ion-col col-6 style="text-align: left">
+                    <b>Name</b>
+                  </ion-col>
+                  <ion-col col-6>
+                    {{uname}}
+                  </ion-col>
+                </ion-row>
+                <ion-row style="font-size: 4vw;margin-top: -5px">
+                    <ion-col col-6 style="text-align: left">
+                      <b>Email Id:</b>
+                    </ion-col>
+                    <ion-col col-6>
+                      {{email}}
+                    </ion-col>
+                  </ion-row>
+                  <ion-row style="font-size: 4vw;margin-top: -5px">
+                      <ion-col col-6 style="text-align: left">
+                        <b>Mobile No:</b>
+                      </ion-col>
+                      <ion-col col-6>
+                        {{mbno}}
+                      </ion-col>
+                    </ion-row>
+              </ion-grid>
+    
+      <!-- <ion-row>
+         <ion-col>
+            Name: 
+         </ion-col>
+         <ion-col>
+            {{m}}
+         </ion-col>
+       </ion-row>
+       <table>
+         
+       </table>
+       <p>Size:{{width}}x{{height}}</p>
+      <p>Area:{{area}}</p>
+      <p>city:{{city}}</p>
+      <p>price:{{prize}}</p>
+      <p>duration:{{duration}}</p>
+      <p>availability:{{availability}}</p>
+      <p>status {{status}}</p>
+     
+
+
+<ion-row>
+  <ion-col>
+    <button (click)="back()">Back</button>
+  </ion-col>
+  <ion-col>
+      <button (click)="approve()">Approve</button>
+    </ion-col>
+    <ion-col>
+        <button (click)="reject()">Reject</button>
+      </ion-col>
+   
+</ion-row>-->
+   
+
+
+
+   </div>
+  </div>
+<div *ngIf="vim">
+    <div   style="height: 139vw;">
+        <ion-slides style="border: radius 3vw;height: 100%;"effect="slide">
+           <ion-slide *ngFor="let m of ia;let i=index" style="border-radius: 3vw;" active>
+             <img [src]=m style="height:100vw;width: 90%" >
+   <br><br>
+           <small>{{i+1}} image of {{count}} images</small>
+           </ion-slide>
+         </ion-slides>
+       </div>
+
+</div>
+ 
+  </ion-content>

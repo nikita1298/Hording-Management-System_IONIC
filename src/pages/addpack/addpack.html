@@ -1,0 +1,213 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<ion-content>
+  <ion-row style="height: 14vw; background-image: linear-gradient(to right,#d6d5d5,#929292);-webkit-box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);-moz-box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);">
+    <ion-title style="text-align: left;font-size:8vw;margin-top: 1vw">
+      <button menuToggle start style="height: 10vw;width: 10vw;background-color: transparent">
+        <ion-icon name="menu" style="color: black;font-size: 9vw"></ion-icon>
+        <div style="margin-left: 9vw;margin-top: -7vw;font-size: 5vw"><b>New Package </b></div>
+      </button>
+    </ion-title>
+  </ion-row>
+
+  <ion-content>
+    <form [formGroup]="formgrouppck" name="m" novalidate>
+
+      <ion-grid>
+
+
+        <ion-row>
+          <br>
+          <ion-item style="width: 93%;">
+            <ion-label color="gray" floating class="" style="border-bottom-color:2px  darkgray;">Package Name</ion-label>
+            <ion-input type="text " [(ngModel)]="pname" formControlName="pckname"></ion-input>
+            <div *ngIf="pckname.hasError('required') && pckname.touched">
+              <p tooltip="Package name is required"> Pckage name required</p>
+            </div>
+          </ion-item>
+        </ion-row>
+
+
+        <ion-row>
+          <br>
+          <ion-item style="width: 93%;">
+
+            <ion-label>Location</ion-label>
+            <ion-select (ionChange)="onChange($event)" formControlName="pckarea" placeholder=" " class="selectWrapper"
+              style="max-width: 100%;-webkit-appearance:none" [(ngModel)]="arss" multiple="false" interface="action-sheet">
+              <div *ngFor="let pl of pkname;let i=index">
+
+                <ion-option style="background-color: black" value="{{pl.area_id}}">
+                  <p style="font-size: 8vw"><input type="hidden" title="{{i+1}}">{{pl.area_name}}</p>
+                </ion-option>
+              </div>
+            </ion-select>
+          </ion-item>
+        </ion-row>
+
+        <ion-row>
+          <br>
+          <ion-item style="width: 93%;">
+
+            <ion-label>Category</ion-label>
+            <ion-select (ionChange)="onChang($event)" formControlName="htype" placeholder="  " class="selectWrapper"
+              style="max-width: 100%;-webkit-appearance:none" [(ngModel)]="htp" multiple="false" interface="popover">
+              <div *ngFor="let pl of ht;let i=index">
+
+                <ion-option style="background-color: black" value="{{pl.h_type_id}}">
+                  <p style="font-size: 8vw"><input type="hidden" title="{{i+1}}">{{pl.h_desc}}</p>
+                </ion-option>
+              </div>
+            </ion-select>
+          </ion-item>
+        </ion-row>
+        <ion-row style="width: 93%;">
+          <ion-col>
+            <ion-item>
+
+
+              <ion-label color="gray" floating class="" style="border-bottom-color:2px  darkgray;">width</ion-label>
+              <ion-input type="Number " [(ngModel)]="pw" formControlName="pckw"></ion-input>
+              <div *ngIf="pckw.hasError('required') && pckw.touched">
+                <p tooltip="Package widhth required"> Pckage widht required</p>
+              </div>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+              <ion-label color="gray" floating class="" style="border-bottom-color:2px  darkgray;">height</ion-label>
+              <ion-input type="Number " [(ngModel)]="ph" formControlName="pckh"></ion-input>
+              <div *ngIf="pckh.hasError('required') && pckh.touched">
+                <p tooltip="Package height is required"> Pckage height required</p>
+              </div>
+            </ion-item>
+          </ion-col>
+
+        </ion-row>
+        <ion-row style="width: 93%">
+          <ion-item style="width: 93%">
+            <ion-label>Mesurements</ion-label>
+            <ion-select (ionChange)="onChan($event)" formControlName="mt" placeholder="" class="selectWrapper" style="max-width: 100%;-webkit-appearance:none"
+              [(ngModel)]="mt1" multiple="false" interface="alert">
+
+              <ion-option style="background-color: black" value="1">Pixels</ion-option>
+              <ion-option style="background-color: black" value="2">Meter</ion-option>
+              <ion-option style="background-color: black" value="3">Foot</ion-option>
+
+
+            </ion-select>
+          </ion-item>
+        </ion-row>
+        <ion-row style="width: 93%">
+          <ion-item>
+            <ion-label>Availability</ion-label>
+            <ion-select (ionChange)="onava($event)" formControlName="ava" placeholder="" class="selectWrapper" style="max-width: 100%;-webkit-appearance:none"
+              [(ngModel)]="cav" multiple="false" interface="alert">
+
+              <ion-option style="background-color: black" value="y">Available now</ion-option>
+              <ion-option style="background-color: black" value="n">Available Later</ion-option>
+
+            </ion-select>
+          </ion-item>
+        </ion-row>
+
+
+     
+        <ion-row style="width: 93%">
+          <ion-col>
+            <ion-item>
+
+
+              <ion-label color="gray" floating class="" style="border-bottom-color:2px  darkgray;">Number of moths</ion-label>
+              <ion-input type="Number " [(ngModel)]="nmunth" formControlName="pckm"></ion-input>
+              <div *ngIf="pckm.hasError('required') && pckm.touched">
+                <p tooltip="Package widhth required"> Number of Months required</p>
+              </div>
+            </ion-item>
+          </ion-col>
+
+        </ion-row>
+        <ion-row style="margin-bottom:15px;width: 93%">
+          <ion-col>
+            <ion-item>
+
+
+              <ion-label color="gray" floating class="" style="border-bottom-color:2px  darkgray;">Amount</ion-label>
+              <ion-input type="Number " [(ngModel)]="pr" formControlName="pckpr"></ion-input>
+              <div *ngIf="pckpr.hasError('required') && pckpr.touched">
+                <p tooltip="Package widhth required"> Amount required</p>
+              </div>
+            </ion-item>
+          </ion-col>
+
+        </ion-row>
+        <br>
+        <ion-row style="width:93%">
+
+
+          <ion-col col-6 style="margin-top:-22px">
+            <ion-item>
+
+
+              <ion-label color="gray" floating class="" style="border-bottom-color:2px  darkgray;">height from  <br>ground</ion-label>
+              <ion-input type="Number " [(ngModel)]="groundh" formControlName="ght"></ion-input>
+              <div *ngIf="ght.hasError('required') && ght.touched">
+                <p tooltip="Package widhth required">hight from ground</p>
+              </div>
+            </ion-item>
+          </ion-col>
+          <ion-col col-6>
+            <ion-item >
+              <ion-label>Mesur<br>ement<br></ion-label>
+              <ion-select (ionChange)="onava($event)" formControlName="ghm" placeholder="" class="selectWrapper" style="max-width: 100%;-webkit-appearance:none"
+                [(ngModel)]="hav" multiple="false" interface="alert">
+
+                <ion-option style="background-color: black" value="m">Meter</ion-option>
+                <ion-option style="background-color: black" value="c">CentiMeter</ion-option>
+
+              </ion-select>
+            </ion-item>
+          </ion-col>
+
+        </ion-row>
+
+
+        <ion-row>
+          <ion-col>
+            <ion-item>
+
+
+              <ion-label color="gray" floating class="" style="border-bottom-color:2px  darkgray;">Package Description
+              </ion-label>
+              <ion-input type="text " [(ngModel)]="des" formControlName="pckdes"></ion-input>
+              <div *ngIf="pckdes.hasError('required') && pckdes.touched">
+                <p tooltip="Package widhth required"> Package Description required </p>
+              </div>
+            </ion-item>
+          </ion-col>
+
+        </ion-row>
+        <ion-row style="width:93%" justify-content-center>
+          <div *ngFor="let im of path;let i=index">
+            <ion-col>
+              <ion-card>
+                <img [src]="im" id="{{i+1}}" (click)="rmimg($event)" style="height: 30vw;width: 30vw;border: 2px solid rgb(248, 248, 248)" />
+              </ion-card>
+            </ion-col>
+          </div>
+        </ion-row>
+        <ion-row justify-content-center>
+          <button (click)="addpck()" style="background-color: floralwhite;border: #c4c2c2 3px solid;border-radius: 7px"
+            justify-content-center><i class="fa fa-image" style="font-size: 9vw;color: gray" justify-content-center></i></button>
+
+        </ion-row>
+        <ion-row style="align-items: center;text-align: center;margin-top: 10vw" justify-content-center>
+          <!-- <button type="submit" class="ion-button"  id="btn" style="background-image: linear-gradient(to right,#c9c6c6,#929292);  background-color :primary;height: 14vw;width: 60vw;font-size: 5vw"
+                  ion-button color="gray" (click)="addpck()">Submit</button>
+                <br>-->
+          <button (click)="inpck()" style="background-image: linear-gradient(to right,#c9c6c6,#929292);;background-color :primary;height: 12vw;width: 60vw;font-size: 5vw">SUBMITS</button>
+        </ion-row>
+
+
+      </ion-grid>
+    </form>
+  </ion-content>

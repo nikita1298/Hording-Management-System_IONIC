@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<ion-content>
+  <ion-row style="height: 14vw; background-image: linear-gradient(to right,#d6d5d5,#929292);-webkit-box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);-moz-box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);">
+    <ion-title style="text-align: left;font-size:8vw;margin-top: 1vw">
+      <button menuToggle start style="height: 10vw;width: 10vw;background-color: transparent">
+        <ion-icon name="menu" style="color: black;font-size: 9vw"></ion-icon>
+        <div style="margin-left: 9vw;margin-top: -7vw;font-size: 5vw"><b>Plans </b></div>
+      </button>
+    </ion-title>
+    </ion-row>
+  
+    <form [formGroup]="formgroup" name="m" novalidate>
+
+      <ion-grid>
+        <ion-row>
+          <p style="color: primary;font-size: 7vw;margin-left :30vw;">New Plans</p>
+        </ion-row>
+      <ion-row radio-group [(ngModel)]="relationship" formControlName="uty" style="margin-left: 7vw;margin-top: 2vw">
+          <ion-label style="color:#929292;font-size: 3vh;margin-right: 3vw">Plan for  :
+            <span style="margin-left: 3vw">
+              <ion-radio value="2"></ion-radio> Customer </span>
+            <span style="margin-left: 3vw">
+              <ion-radio value="1"></ion-radio> Provider</span>
+          </ion-label>
+       
+        
+        </ion-row>
+
+        <ion-row>
+        
+         
+          <ion-item style="width: 93%">  
+            <ion-label color="gray" floating class="" style="border-bottom-color:2px  darkgray;font-size: 14px">Number of Months</ion-label>
+            <ion-input type="text " [(ngModel)]="durs" formControlName="dur"  name="logemail"></ion-input>
+           
+          </ion-item>
+          <div *ngIf="dur.hasError('required') && dur.touched" >
+              <p> Months required</p>
+          </div>
+  
+          </ion-row>
+          <ion-row>
+           
+            <ion-item style="width: 93%;">  
+              <ion-label color="gray" floating class="" style="border-bottom-color:2px  darkgray;font-size: 14px">Amount</ion-label>
+              <ion-input type="text " [(ngModel)]="amts" formControlName="amt"  name="logemail"></ion-input>
+             
+            </ion-item>
+            <div *ngIf="amt.hasError('required') && amt.touched" >
+                <p> Amount is Required</p>
+            </div>
+    
+            </ion-row>
+            <ion-row>
+              <br>
+      
+      
+              </ion-row>
+              
+      <ion-row radio-group [(ngModel)]="acts" formControlName="act" style="margin-left: 7vw;margin-top: 2vw">
+          <ion-label style="color:#929292;font-size: 3vh;margin-right: 3vw">Activate Now :
+            <span style="margin-left: 3vw">
+              <ion-radio value="y"></ion-radio> Yes </span>
+            <span style="margin-left: 3vw">
+              <ion-radio value="n"></ion-radio>No</span>
+          </ion-label>
+          
+        </ion-row>
+        <ion-row style="align-items: center;text-align: center;margin-top: 10vw" justify-content-center>
+            <button type="submit" class="ion-button" [disabled]="!formgroup.valid" id="btn" style="background-image: linear-gradient(to right,#c9c6c6,#929292);background-color :primary;height: 14vw;width: 60vw;font-size: 5vw"
+              ion-button color="gray" (click)="addplan()">Add Plan</button>
+            <br>
+          </ion-row>
+    </ion-grid>
+        </form>
+
+   
+
+</ion-content>

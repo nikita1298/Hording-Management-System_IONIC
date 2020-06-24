@@ -1,0 +1,99 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<ion-content >
+    <ion-row style=" height: 14vw;;background-image: linear-gradient(to right,#d6d5d5,#929292);background-color:rgba(1, 195, 209, 0.979);-webkit-box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);-moz-box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);box-shadow: -1px 7px 5px -6px rgba(0,0,0,0.75);">
+        <div style="box-align: left;margin-left: 5px;margin-top: 1px;margin-bottom: -1px">
+       <!--  <img class="filter" src="../../assets/img/logosv3.png" style="margin-bottom: -1px;margin-top: 1px;height:10vw ;width:10vw "/>
+       -->
+       <button type="submit" style="margin-top: 1vw;background-color:transparent;margin-right :0vw;" (click)="rethome()" >
+        <i class="fa fa-long-arrow-left" style="font-size: 7vw;margin-right: 3vw;color: rgb(20, 20, 20);margin-top: 2vw"></i>
+       </button>
+        </div>
+        <ion-title style="text-align: left;font-size:8vw">
+          <div style="font-size: 6vw;">
+            Sign in</div>
+        </ion-title>
+        
+  <!-- <div >
+                <button type="submit" style="background-color:transparent;margin-right :0vw;" (click)="rethome()" >
+           <abbr title="Sign in "><i class="fa fa-home" style="font-size: 7vw;margin-right: 3vw;color: rgb(20, 20, 20);margin-top: 2vw"></i>
+             </abbr>
+             
+            </button>
+        </div>-->
+      </ion-row>
+    <div style="margin-left: 33vw;margin-top: 10vw">
+      <img class="filter" src="../../assets/img/logosv3.png" style="margin-bottom: -1px;margin-top: 1px;height:25vw ;width:25vw "/>
+        </div> 
+      
+     
+      
+      <form [formGroup]="formgroup" name="m" novalidate>
+
+          <ion-grid>
+            <ion-row>
+              <br>
+             
+              <ion-item style="width: 93%;">  
+                <ion-label color="gray" floating class="" style="border-bottom-color:2px  darkgray;font-size: 14px"><i class="fa fa-envelope" style="margin-right: 1vw;font-size: 14px"></i>Email Id</ion-label>
+                <ion-input type="text " [(ngModel)]="em" formControlName="email"  name="logemail"></ion-input>
+               
+              </ion-item>
+              </ion-row>
+              <div class="error-box" style="color: red;margin-left: 10vw" *ngIf="email.hasError('required') && email.touched" >
+                  <p> Email Id required</p>
+              </div>
+              <div class="error-box" style="color: red;margin-left: 10vw" *ngIf="email.hasError('pattern') && email.touched" >
+                  <p> Invalid Email</p>
+              </div>
+      
+              
+      <ion-row>
+              <ion-item style="width: 93%">
+                <ion-label color="gray" floating class="" style="border-bottom-color:2px  darkgray;font-size:14px"><i class="fa fa-key" style="margin-right: 1vw;font-size: 14px"></i>Password</ion-label>
+                <ion-input type="password" [(ngModel)]="pass" formControlName="passwor" name="logpassword" ></ion-input>
+      
+              </ion-item>
+            
+      
+      
+            </ion-row>
+            <div style="color: red;margin-left: 10vw" *ngIf="passwor.hasError('required') && passwor.touched" >
+                <p>Password required</p>
+            </div>
+
+            <div style="color: red;margin-left: 10vw" *ngIf="passwor.hasError('pattern') && passwor.touched" >
+              <p>Password requiredfghdgh</p>
+          </div>
+            
+            <ion-row style="align-items: center;text-align: center;margin-top: 10vw" justify-content-center>
+
+                <button type="submit" class="ion-button" [disabled]="!formgroup.valid"  id="btn" style="background-image: linear-gradient(to right,#c9c6c6,#929292);;background-color :primary;height: 12vw;width: 60vw;font-size: 5vw"
+                  ion-button color="gray" (click)="loginuser()">Sign in</button>
+                <br>
+              </ion-row>
+              <ion-row>
+                <br>
+                <button type="submit" (click)="forgetpass()" style="text-align: left ;align-items: right;font-size: 4vw;color: rgb(43, 43, 43);margin-left: 37vw;background: transparent;margin-top: 5vw"  >Forget Password ??</button>
+            
+              </ion-row>
+            </ion-grid>
+
+           
+            <ion-row style="align-items: center;width: 70vw;margin-left: 23vw">
+             <p style="font-size: 4vw;">
+           Don't have an account!? <button type="submit" (click)="lh()" style="font-size: 5vw;color: rgb(43, 43, 43);background: transparent"  >Sign Up</button>
+          </p> 
+          
+          </ion-row>
+            </form>
+
+</ion-content>
